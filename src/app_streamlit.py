@@ -2,6 +2,23 @@
 from sqlalchemy import create_engine
 import streamlit as st
 import plotly.express as px
+import os
+from dotenv import load_dotenv
+from sqlalchemy import create_engine
+import pandas as pd
+import streamlit as st
+import plotly.express as px
+
+load_dotenv()
+
+PGHOST = os.getenv("PGHOST", "localhost")
+PGPORT = os.getenv("PGPORT", "5433")
+PGUSER = os.getenv("PGUSER", "shady")
+PGPASSWORD = os.getenv("PGPASSWORD", "shady")
+PGDATABASE = os.getenv("PGDATABASE", "berlin_bi")
+
+engine = create_engine(f"postgresql://{PGUSER}:{PGPASSWORD}@{PGHOST}:{PGPORT}/{PGDATABASE}")
+
 
 st.set_page_config(page_title="Berlin Weather BI", layout="wide")
 engine = create_engine("postgresql+psycopg2://shady:shady@127.0.0.1:5433/berlin_bi")
