@@ -1,0 +1,13 @@
+services:
+  db:
+    image: postgres:15
+    container_name: berlin-bi-dashboard-db
+    restart: always
+    environment:
+      POSTGRES_USER: shady
+      POSTGRES_PASSWORD: shady
+      POSTGRES_DB: berlin_bi
+    ports:
+      - "5433:5432"  # 👈 changed host port
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
