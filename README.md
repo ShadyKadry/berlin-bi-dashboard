@@ -112,7 +112,7 @@ berlin-bi-dashboard/
 7. **Run the dashboard**
    python -m streamlit run .\src\app_streamlit.py
 
-##Environment Variables
+## Environment Variables
 Create a .env in the repo root (these are the defaults; see .env.sample):
 PGHOST=localhost
 PGPORT=5433
@@ -123,7 +123,7 @@ PGDATABASE=berlin_bi
 Both the app and the loader read .env via python-dotenv.
 If you change the Docker port mapping, update PGPORT here.
 
-##Data Ingestion Details
+## Data Ingestion Details
 1- src/fetch_weather.py
 
 Fetches recent hourly weather and writes data/raw/berlin_weather.csv.
@@ -152,3 +152,17 @@ Re-running is safe — new rows insert; existing rows update.
 From the project root:
 .\venv\Scripts\activate
 python -m streamlit run .\src\app_streamlit.py
+
+
+## Update buttons (sidebar + top):
+
+Run fetch_weather.py → refresh CSV
+
+Run load_to_postgres.py → upsert DB
+
+Clear Streamlit caches
+
+Rerun the app (charts refresh)
+
+## Build and run the windows .EXE (optional)    
+
