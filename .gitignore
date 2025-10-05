@@ -4,3 +4,10 @@ data/db/
 .env
 *.pyc
 .env
+
+# build + local
+/dist/
+/build/
+/data/
+*.exe
+.env
